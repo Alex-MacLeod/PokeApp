@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="PokemonApp">
+    <head >
+        <meta charset="UTF-8">
+        <title>Pokemon</title>
+    </head>
+    <body>
+        <nav>
+            <div>
+                <a href="#">Home</a>
+            </div>
+            <ul>
+                <li><a ui-sref="pokedex">Pokedex</a></li>
+                <li><a ui-sref="battle">Battle!</a></li>
+                <li><a ui-sref="box">My Pokemon</a></li>
+            </ul>
+        </nav>
+
+        <div ui-view></div>
+        
+        <script src="scripts/angular.min.js"></script>
+        <script src="scripts/ui-router.min.js"></script>
+
+        <script src="app/pokemonapp.js"></script>
+        <script src="app/app-state-manager.js"></script>
+
+        <script src="app/services/dal/dal.js"></script>
+        <script src="app/services/dal/pokedal.js"></script>
+
+        <script src="app/services/service/pokeservice.js"></script>
+
+        <script src="app/features/battle/battlecontroller.js"></script>
+        <script src="app/features/box/boxcontroller.js"></script>
+        <script src="app/features/pokedex/pokedexcontroller.js"></script>
+    </body>
+</html>

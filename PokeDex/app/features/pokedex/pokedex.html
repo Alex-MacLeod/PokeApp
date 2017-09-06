@@ -1,0 +1,63 @@
+<div ng-controller="pokedexController as pCtrl">
+    <div>
+        <hr>
+        <h2>PokeDex</h2>
+        <hr>
+    </div>
+    <div>
+        <div>
+            <table>
+                <h3>Find Pokemon</h3>
+                <tbody>
+                    <tr ng-repeat="poke in pCtrl.pokemon.results">
+                        <td>{{poke.name | uppercase }}</td>
+                        <td><button ng-click="pCtrl.getData(poke.name + '/')">View data</button></td>
+                        <td><button>Add to MyPokemon</button></td>
+                    </tr>
+                </tbody>
+            </table>
+            <div>
+                <button ng-click="pCtrl.init(?offset=)">< Previous</button>
+                <button ng-click="pCtrl.init(?offset=)">Next ></button>
+                <br>
+                <p>Total pokemon: {{pCtrl.pokemon.count}}</p>
+            </div>
+            <hr>
+        </div>
+        <div>
+            <table>
+                <h3>Data</h3>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th ng-click="pCtrl.doSort()">Name</th>
+                        <th>Base Experience</th>
+                        <th>Height</th>
+                        <th>Weight</th>
+                        <th>Abilities</th>
+                        <th>Where to find</th>
+                        <th>Moves</th>
+                        <th>Species</th>
+                        <th>Statistics</th>
+                        <th>Types</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="data in pCtrl.details | orderBy:pCtrl.sortBy:pCtrl.reverse">
+                        <td>{{detail.id}}</td>
+                        <td>{{detail.name | uppercase}}</td>
+                        <td>{{detail.base_experience}}</td>
+                        <td>{{detail.height}}</td>
+                        <td>{{detail.weight}}</td>
+                        <td>{{detail.abilities}}</td>
+                        <td>{{detail.location_area_encounters}}</td>
+                        <td>{{detail.moves}}</td>
+                        <td>{{detail.species}}</td>
+                        <td>{{detail.stats}}</td>
+                        <td>{{detail.types}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
